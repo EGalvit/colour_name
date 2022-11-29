@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'GetNamePage.dart';
+import 'GetColorPage.dart';
 
 enum Choice{Dad, Mom, Cat, Fatih}
 String? name;
 
 void main() {
-  runApp(const MainPage());
+  runApp(const MaterialApp(
+    title: 'Navigation Basics',
+    home: MainPage(),
+  ));
 }
-
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
@@ -49,7 +52,10 @@ class _MainPageState extends State<MainPage> {
                   )),
               ElevatedButton(
                 onPressed: () {
-
+                  Navigator.push(
+                      context,
+                  MaterialPageRoute(builder: (context) => const GetColorPage()),
+                  );
                 },
                 child: Text("Get color"),
               ),
